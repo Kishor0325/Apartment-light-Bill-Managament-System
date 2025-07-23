@@ -1,0 +1,25 @@
+<h2>Apartment Light Bills</h2>
+<a href="{% url 'bill_create' %}">Add New Bill</a>
+<table border="1">
+    <tr>
+        <th>Apt No.</th>
+        <th>Name</th>
+        <th>Units</th>
+        <th>Bill Date</th>
+        <th>Total (₹)</th>
+        <th>Actions</th>
+    </tr>
+    {% for bill in bills %}
+    <tr>
+        <td>{{ bill.apartment_number }}</td>
+        <td>{{ bill.resident_name }}</td>
+        <td>{{ bill.units_consumed }}</td>
+        <td>{{ bill.bill_date }}</td>
+        <td>{{ bill.total_bill }}</td>
+        <td>
+            <a href="{% url 'bill_update' bill.id %}">Edit</a> |
+            <a href="{% url 'bill_delete' bill.id %}">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>

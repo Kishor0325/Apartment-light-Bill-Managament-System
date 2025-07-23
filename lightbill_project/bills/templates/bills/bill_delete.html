@@ -1,0 +1,7 @@
+<h2>Delete Confirmation</h2>
+<p>Are you sure you want to delete the bill for "{{ bill.resident_name }}"?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Yes, Delete</button>
+</form>
+<a href="{% url 'bill_list' %}">Cancel</a>
